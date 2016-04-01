@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ScoreViewController.h
 //  Score
 //
 //  Created by Erika Bueno on 4/1/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ScoreViewController : UIViewController
 
 @end
-

@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		E8DDF9381CAEE5E000DC7DFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDF9371CAEE5E000DC7DFD /* main.m */; };
 		E8DDF93B1CAEE5E000DC7DFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDF93A1CAEE5E000DC7DFD /* AppDelegate.m */; };
-		E8DDF93E1CAEE5E100DC7DFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDF93D1CAEE5E100DC7DFD /* ViewController.m */; };
 		E8DDF9411CAEE5E100DC7DFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8DDF93F1CAEE5E100DC7DFD /* Main.storyboard */; };
 		E8DDF9431CAEE5E300DC7DFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8DDF9421CAEE5E300DC7DFD /* Assets.xcassets */; };
 		E8DDF9461CAEE5E400DC7DFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8DDF9441CAEE5E400DC7DFD /* LaunchScreen.storyboard */; };
 		E8DDF9511CAEE5E700DC7DFD /* ScoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDF9501CAEE5E700DC7DFD /* ScoreTests.m */; };
 		E8DDF95C1CAEE5EE00DC7DFD /* ScoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDF95B1CAEE5EE00DC7DFD /* ScoreUITests.m */; };
+		E8DDF96B1CAF0B2200DC7DFD /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDF96A1CAF0B2200DC7DFD /* StartViewController.m */; };
+		E8DDF96E1CAF0B3400DC7DFD /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDF96D1CAF0B3400DC7DFD /* ScoreViewController.m */; };
+		E8DDF9711CAF13B100DC7DFD /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDF9701CAF13B100DC7DFD /* ConfigViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +41,6 @@
 		E8DDF9371CAEE5E000DC7DFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E8DDF9391CAEE5E000DC7DFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8DDF93A1CAEE5E000DC7DFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E8DDF93C1CAEE5E100DC7DFD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E8DDF93D1CAEE5E100DC7DFD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E8DDF9401CAEE5E100DC7DFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E8DDF9421CAEE5E300DC7DFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8DDF9451CAEE5E400DC7DFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +51,12 @@
 		E8DDF9571CAEE5E800DC7DFD /* ScoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DDF95B1CAEE5EE00DC7DFD /* ScoreUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreUITests.m; sourceTree = "<group>"; };
 		E8DDF95D1CAEE5EF00DC7DFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8DDF9691CAF0B2200DC7DFD /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		E8DDF96A1CAF0B2200DC7DFD /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		E8DDF96C1CAF0B3400DC7DFD /* ScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreViewController.h; sourceTree = "<group>"; };
+		E8DDF96D1CAF0B3400DC7DFD /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
+		E8DDF96F1CAF13B100DC7DFD /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
+		E8DDF9701CAF13B100DC7DFD /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +109,12 @@
 			children = (
 				E8DDF9391CAEE5E000DC7DFD /* AppDelegate.h */,
 				E8DDF93A1CAEE5E000DC7DFD /* AppDelegate.m */,
-				E8DDF93C1CAEE5E100DC7DFD /* ViewController.h */,
-				E8DDF93D1CAEE5E100DC7DFD /* ViewController.m */,
+				E8DDF9691CAF0B2200DC7DFD /* StartViewController.h */,
+				E8DDF96A1CAF0B2200DC7DFD /* StartViewController.m */,
+				E8DDF96C1CAF0B3400DC7DFD /* ScoreViewController.h */,
+				E8DDF96D1CAF0B3400DC7DFD /* ScoreViewController.m */,
+				E8DDF96F1CAF13B100DC7DFD /* ConfigViewController.h */,
+				E8DDF9701CAF13B100DC7DFD /* ConfigViewController.m */,
 				E8DDF93F1CAEE5E100DC7DFD /* Main.storyboard */,
 				E8DDF9421CAEE5E300DC7DFD /* Assets.xcassets */,
 				E8DDF9441CAEE5E400DC7DFD /* LaunchScreen.storyboard */,
@@ -270,7 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8DDF93E1CAEE5E100DC7DFD /* ViewController.m in Sources */,
+				E8DDF96E1CAF0B3400DC7DFD /* ScoreViewController.m in Sources */,
+				E8DDF96B1CAF0B2200DC7DFD /* StartViewController.m in Sources */,
+				E8DDF9711CAF13B100DC7DFD /* ConfigViewController.m in Sources */,
 				E8DDF93B1CAEE5E000DC7DFD /* AppDelegate.m in Sources */,
 				E8DDF9381CAEE5E000DC7DFD /* main.m in Sources */,
 			);
