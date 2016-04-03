@@ -17,6 +17,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    static NSString * const hasRunAppOnceKey = @"FirstRun";
+    
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    
+    if ([config boolForKey:hasRunAppOnceKey] == NO)
+    {
+        
+        [config setBool:YES forKey:hasRunAppOnceKey];
+        
+        [config setValue:@"10" forKey:@"Points"];
+        
+        [config setValue:@"1" forKey:@"Pace"];
+        
+    }
+    
     return YES;
 }
 

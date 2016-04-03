@@ -10,6 +10,9 @@
 
 @interface ConfigViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *pointsTextField;
+@property (weak, nonatomic) IBOutlet UITextField *paceTextField;
+
 @end
 
 @implementation ConfigViewController
@@ -26,9 +29,17 @@
 
 - (IBAction)saveConfig:(id)sender {
     
-    // save methods and dismiss
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    
+    [config setValue:self.pointsTextField.text forKey:@"Points"];
+   
+    [config setValue:self.paceTextField.text forKey:@"Pace"];
+    
+    [config synchronize];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
     
 }
 

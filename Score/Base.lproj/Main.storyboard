@@ -74,15 +74,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pF-p7-Ifo">
-                                        <rect key="frame" x="21" y="556" width="102" height="27"/>
+                                        <rect key="frame" x="21" y="556" width="135" height="27"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="102" id="gbN-vS-fta"/>
+                                            <constraint firstAttribute="width" constant="135" id="gbN-vS-fta"/>
                                             <constraint firstAttribute="height" constant="27" id="xag-dc-WMC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="10"/>
-                                        <state key="normal" title="RESTART MATCH" backgroundImage="whitebutton">
+                                        <state key="normal" title="RESTART THIS MATCH" backgroundImage="whitebutton">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="restartMatch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jW4-xs-fFw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF4-rH-pnR">
                                         <rect key="frame" x="50" y="200" width="200" height="200"/>
@@ -94,6 +97,9 @@
                                         <state key="normal" title="0">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="teamA:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7lu-qm-AZZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -140,6 +146,9 @@
                                         <state key="normal" title="0">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="teamB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iif-2q-014"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -166,6 +175,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="teamAButton" destination="HF4-rH-pnR" id="YHi-AD-Qky"/>
+                        <outlet property="teamBButton" destination="wL0-is-rZI" id="tBo-eE-eps"/>
                         <segue destination="hDt-OD-AGH" kind="show" identifier="setConfig" id="Kw2-HZ-7bY"/>
                     </connections>
                 </viewController>
@@ -185,12 +196,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="10" textAlignment="center" minimumFontSize="17" background="whitebutton" translatesAutoresizingMaskIntoConstraints="NO" id="OVk-eu-rVx">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" textAlignment="center" minimumFontSize="17" background="whitebutton" translatesAutoresizingMaskIntoConstraints="NO" id="OVk-eu-rVx">
                                 <rect key="frame" x="230" y="77" width="140" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="Dfb-PR-fVU"/>
                                     <constraint firstAttribute="height" constant="36" id="hkg-UM-vDN"/>
                                 </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -204,12 +216,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1" textAlignment="center" minimumFontSize="17" background="whitebutton" translatesAutoresizingMaskIntoConstraints="NO" id="S1a-9y-Y38">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" background="whitebutton" translatesAutoresizingMaskIntoConstraints="NO" id="S1a-9y-Y38">
                                 <rect key="frame" x="230" y="168" width="140" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="7z9-db-zEn"/>
                                     <constraint firstAttribute="width" constant="140" id="tsd-ue-fBL"/>
                                 </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -252,6 +265,10 @@
                             <constraint firstItem="zcY-hB-NEf" firstAttribute="centerX" secondItem="BNd-bR-883" secondAttribute="centerX" id="wMQ-5T-2ff"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="paceTextField" destination="S1a-9y-Y38" id="UED-qe-4xn"/>
+                        <outlet property="pointsTextField" destination="OVk-eu-rVx" id="35z-9U-w7B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edr-NX-RaA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,6 +280,6 @@
         <image name="whitebutton" width="600" height="140"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lfM-X7-Q8x"/>
+        <segue reference="Kw2-HZ-7bY"/>
     </inferredMetricsTieBreakers>
 </document>
