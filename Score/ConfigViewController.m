@@ -24,6 +24,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)saveConfig:(id)sender {
+    
+    // save methods and dismiss
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
 /*
 #pragma mark - Navigation
 
