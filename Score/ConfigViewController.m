@@ -21,6 +21,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.pointsTextField.delegate = self;
+    
+    self.paceTextField.delegate = self;
+    
+    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]
+                                           initWithTarget:self
+                                           action:@selector(hideKeyBoard)];
+    
+    [self.view addGestureRecognizer:tapGesture];
+    
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     
     self.pointsTextField.text = [config valueForKey:@"Points"];
@@ -36,17 +46,78 @@
 
 - (IBAction)saveConfig:(id)sender {
     
-    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    if ([self.pointsTextField.text isEqual:@" "] || [self.paceTextField.text isEqual:@" "] || [self.pointsTextField.text isEqual:@""] || [self.paceTextField.text isEqual:@""] ) {
+        
+        [self emptyField];
+        
+    }  else {
+        
+        if ([self.paceTextField.text intValue] > [self.pointsTextField.text intValue]) {
+            
+            [self paceBiggerThanPoints];
+            
+        } else {
+            
+            NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+            
+            [config setValue:self.pointsTextField.text forKey:@"Points"];
+            
+            [config setValue:self.paceTextField.text forKey:@"Pace"];
+            
+            [config synchronize];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+            NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+            
+        }
+        
+        
+        
+    }
     
-    [config setValue:self.pointsTextField.text forKey:@"Points"];
-   
-    [config setValue:self.paceTextField.text forKey:@"Pace"];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)hideKeyBoard {
+    [self.pointsTextField resignFirstResponder];
+    [self.paceTextField resignFirstResponder];
+}
+
+- (void) emptyField {
     
-    [config synchronize];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No empty fields, please!"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                           
+                                                       }];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [alert addAction:okAction];
     
-    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
+- (void) paceBiggerThanPoints {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Pace is bigger than maximum points!"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                           
+                                                       }];
+    
+    [alert addAction:okAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
     
 }
 
