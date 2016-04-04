@@ -20,6 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    
+    self.pointsTextField.text = [config valueForKey:@"Points"];
+    
+    self.paceTextField.text = [config valueForKey:@"Pace"];
+    
 }
 
 - (void)didReceiveMemoryWarning {

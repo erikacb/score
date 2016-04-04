@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSString *savedPoints;
 @property (strong, nonatomic) NSString *savedPace;
+@property (strong, nonatomic) NSString *winnerMessage;
 @property int teamAPoints;
 @property int teamBPoints;
 @property int maximum;
@@ -44,6 +45,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    [self restartMatchMethod];
 
     self.teamAPoints = 0;
     self.teamBPoints = 0;
@@ -68,12 +71,14 @@
 
 - (IBAction)teamA:(id)sender {
     
-    self.teamAPoints++;
+    self.teamAPoints = self.teamAPoints + [self.savedPace intValue];
     NSLog(@"%i", self.teamAPoints);
     [self.teamAButton setTitle: [NSString stringWithFormat:@"%d", self.teamAPoints] forState: UIControlStateNormal];
     self.hasFinished = [self finishedMatchWithMaximumOf:self.maximum checkingPointsA:self.teamAPoints andCheckingPointsB:self.teamBPoints];
     if (self.hasFinished == YES) {
-        NSLog(@"Team A is the winner!");
+        
+        self.winnerMessage = @"TEAM A :)";
+        [self showWinner];
         
         self.teamAButton.enabled = NO;
         self.teamBButton.enabled = NO;
@@ -84,13 +89,14 @@
 
 - (IBAction)teamB:(id)sender {
     
-    self.teamBPoints++;
+    self.teamBPoints = self.teamBPoints + [self.savedPace intValue];
     NSLog(@"%i", self.teamBPoints);
     [self.teamBButton setTitle: [NSString stringWithFormat:@"%d", self.teamBPoints] forState: UIControlStateNormal];
     self.hasFinished = [self finishedMatchWithMaximumOf:self.maximum checkingPointsA:self.teamAPoints andCheckingPointsB:self.teamBPoints];
     if (self.hasFinished == YES) {
 
-        NSLog(@"Team B is the winner!");
+        self.winnerMessage = @"TEAM B :)";
+        [self showWinner];
         
         self.teamAButton.enabled = NO;
         self.teamBButton.enabled = NO;
@@ -105,7 +111,7 @@
 
 - (BOOL)finishedMatchWithMaximumOf:(int)maximum checkingPointsA:(int)pointsA andCheckingPointsB:(int)pointsB {
 
-    if ((maximum == pointsA) || (maximum == pointsB)) {
+    if ((maximum <= pointsA) || (maximum <= pointsB)) {
         return YES;
     } else {
         return NO;
@@ -114,6 +120,12 @@
 }
 
 - (IBAction)restartMatch:(id)sender {
+    
+    [self restartMatchMethod];
+    
+}
+
+- (void) restartMatchMethod {
     
     self.teamAButton.enabled = YES;
     self.teamBButton.enabled = YES;
@@ -124,6 +136,22 @@
     [self.teamAButton setTitle: [NSString stringWithFormat:@"%d", self.teamAPoints] forState: UIControlStateNormal];
     [self.teamBButton setTitle: [NSString stringWithFormat:@"%d", self.teamBPoints] forState: UIControlStateNormal];
     
+}
+
+- (void) showWinner {
+
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"And the winner is..."
+                                                                   message:self.winnerMessage
+                                                            preferredStyle:UIAlertControllerStyleActionSheet]; // 1
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                               [self restartMatchMethod];
+                                                           }];
+    
+    [alert addAction:okAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
 }
 
 /*
